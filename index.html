@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./src/styles/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Vite.js Vanilla Template</title>
+	</head>
+
+	<body>
+		<nav class="bg-offwhite">
+			<menu
+				class="flex-container space-between p-5 vertical-align-center"
+			>
+				<div class="flex-container gap-2x">
+					<li>
+						<a href="#">
+							<img src="" alt="Logo" />
+						</a>
+					</li>
+					<li><a href="#">Search</a></li>
+					<li><a href="#">Hotels</a></li>
+					<li><a href="#">Popular</a></li>
+				</div>
+				<div class="flex-container gap-2x">
+					<a
+						href="#"
+						class="bg-red fs-300 text-primary-400 px-2py-6 round"
+						>Login</a
+					>
+					<a
+						href="#"
+						class="bg-red fs-300 text-primary-400 px-2py-6 round"
+						>Sign Up</a
+					>
+				</div>
+			</menu>
+		</nav>
+		<header>
+			<div class="center">
+				<h1>Find your perfect hotel with [Name]</h1>
+				<p>Over 1 million rooms worldwide are waiting for you!</p>
+			</div>
+			<form action="#" method="get">
+				<div class="form-wrap">
+					<label for="location">Location</label>
+					<input
+						type="text"
+						name="location"
+						id="location"
+						placeholder="Where do you wanna go?"
+					/>
+				</div>
+				<div class="form-wrap">
+					<label for="check-in">Check-in date</label>
+					<input
+						type="text"
+						name="checkIn"
+						id="check-in"
+						placeholder="dd/mm/yyyy"
+						pattern="(\d{2}\/(0[1-9]|1[0-2])\/\d{4})"
+					/>
+				</div>
+				<div class="form-wrap">
+					<label for="check-out">Check-Out date</label>
+					<input
+						type="text"
+						name="checkOut"
+						id="check-out"
+						placeholder="dd/mm/yyyy"
+						pattern="(\d{2}\/(0[1-9]|1[0-2])\/\d{4})"
+					/>
+				</div>
+				<div class="form-wrap">
+					<label for="guests">Number of guests</label>
+					<input
+						type="number"
+						name="guests"
+						id="guests"
+						placeholder="Enter number of guests"
+					/>
+				</div>
+				<button class="bg-red p-2 btn">
+					<img
+						src="./src/assets/images/MiArrowRight.svg"
+						alt="search"
+					/>
+				</button>
+			</form>
+		</header>
+		<main>
+			<section>
+				<h2 class="my-4 fs-400">Explore popular destinations</h2>
+				<div class="grid-container grid-2x4 gap-1x">
+					<div class="grid-item-1 relative">
+						<img
+							class="card-img"
+							src="./src/assets/images/small/redd-f-nTBW1cOY1qI-unsplash.jpg"
+							alt=""
+						/>
+						<div class="faded-box">
+							<span class="faded-box absolute bottom-left fs-200"
+								>Paris</span
+							>
+						</div>
+					</div>
+					<div class="relative">
+						<img
+							class="card-img"
+							src="./src/assets/images/small/aurelien-romain-zHth1uFXV6I-unsplash.jpg"
+							alt=""
+						/>
+						<span class="faded-box absolute bottom-left fs-200"
+							>Paris</span
+						>
+					</div>
+					<div class="grid-item-3 relative">
+						<img
+							class="card-img"
+							src="./src/assets/images/small/jason-leung-yux412uKpG0-unsplash.jpg"
+							alt=""
+						/>
+						<span class="faded-box absolute bottom-left fs-200"
+							>Paris</span
+						>
+					</div>
+					<div class="relative">
+						<img
+							class="card-img"
+							src="./src/assets/images/small/gaddafi-rusli-2ueUnL4CkV8-unsplash.jpg"
+							alt=""
+						/>
+						<span class="faded-box absolute bottom-left fs-200"
+							>Paris</span
+						>
+					</div>
+					<div class="relative">
+						<img
+							class="card-img"
+							src="./src/assets/images/small/jonathan-chng-7_WyzplsaSE-unsplash.jpg"
+							alt=""
+						/>
+						<span class="faded-box absolute bottom-left fs-200"
+							>Paris</span
+						>
+					</div>
+					<div class="relative">
+						<img
+							class="card-img"
+							src="./src/assets/images/small/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg"
+							alt=""
+						/>
+						<span class="faded-box absolute bottom-left fs-200"
+							>Paris</span
+						>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2 class="fs-400 title">Top-rated hotels by guests</h2>
+				<div class="flex-container gap-1x">
+					<div class="flex-col card bg-offwhite">
+						<div class="relative">
+							<img
+								class="img"
+								src="./src/assets/images/visualsofdana-T5pL6ciEn-I-unsplash.jpg"
+								alt=""
+							/>
+							<div class="top absolute flex-container">
+								<p class="bg-red fs-200 text-primary-400">
+									9.5
+								</p>
+								<svg
+									class="heart"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										fill="white"
+										d="M12 20.325q-.35 0-.712-.125t-.638-.4l-1.725-1.575q-2.65-2.425-4.788-4.812T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.325 0 2.5.562t2 1.538q.825-.975 2-1.537t2.5-.563q2.35 0 3.925 1.575T22 8.15q0 2.875-2.125 5.275T15.05 18.25l-1.7 1.55q-.275.275-.637.4t-.713.125Z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<h3 class="fs-400">Soho Hotel</h3>
+						<p class="fs-200">London</p>
+						<a class="card-link fs-200" href="#"
+							>Starting form $130/night
+							<span class="card-arrow"
+								><img
+									src="./src/assets/images/MiChevronRight.svg"
+									alt="" /></span
+						></a>
+					</div>
+					<div class="flex-col card bg-offwhite">
+						<div class="relative">
+							<img
+								class="img"
+								src="./src/assets/images/rooms/huy-nguyen-mVLMZiILyxM-unsplash.jpg"
+								alt=""
+							/>
+							<div class="top absolute flex-container">
+								<p class="bg-red fs-200 text-primary-400">
+									9.5
+								</p>
+								<svg
+									class="heart"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										fill="white"
+										d="M12 20.325q-.35 0-.712-.125t-.638-.4l-1.725-1.575q-2.65-2.425-4.788-4.812T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.325 0 2.5.562t2 1.538q.825-.975 2-1.537t2.5-.563q2.35 0 3.925 1.575T22 8.15q0 2.875-2.125 5.275T15.05 18.25l-1.7 1.55q-.275.275-.637.4t-.713.125Z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<h3 class="fs-400">Soho Hotel</h3>
+						<p class="fs-200">London</p>
+						<a class="card-link fs-200" href="#"
+							>Starting form $130/night
+							<span class="card-arrow"
+								><img
+									src="./src/assets/images/MiChevronRight.svg"
+									alt="" /></span
+						></a>
+					</div>
+					<div class="flex-col card bg-offwhite">
+						<div class="relative">
+							<img
+								class="img"
+								src="./src/assets/images/rooms/point3d-commercial-imaging-ltd-_Swg04CP0bU-unsplash.jpg"
+								alt=""
+							/>
+							<div class="top absolute flex-container">
+								<p class="bg-red fs-200 text-primary-400">
+									9.5
+								</p>
+								<svg
+									class="heart"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										fill="white"
+										d="M12 20.325q-.35 0-.712-.125t-.638-.4l-1.725-1.575q-2.65-2.425-4.788-4.812T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.325 0 2.5.562t2 1.538q.825-.975 2-1.537t2.5-.563q2.35 0 3.925 1.575T22 8.15q0 2.875-2.125 5.275T15.05 18.25l-1.7 1.55q-.275.275-.637.4t-.713.125Z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<h3 class="fs-400">Soho Hotel</h3>
+						<p class="fs-200">London</p>
+						<a class="card-link fs-200" href="#"
+							>Starting form $130/night
+							<span class="card-arrow"
+								><img
+									src="./src/assets/images/MiChevronRight.svg"
+									alt="" /></span
+						></a>
+					</div>
+					<div class="flex-col card bg-offwhite">
+						<div class="relative">
+							<img
+								class="img"
+								src="./src/assets/images/rooms/point3d-commercial-imaging-ltd-i1kzMmWYQT4-unsplash.jpg"
+								alt=""
+							/>
+							<div class="top absolute flex-container">
+								<p class="bg-red fs-200 text-primary-400">
+									9.5
+								</p>
+								<svg
+									class="heart"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										fill="white"
+										d="M12 20.325q-.35 0-.712-.125t-.638-.4l-1.725-1.575q-2.65-2.425-4.788-4.812T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.325 0 2.5.562t2 1.538q.825-.975 2-1.537t2.5-.563q2.35 0 3.925 1.575T22 8.15q0 2.875-2.125 5.275T15.05 18.25l-1.7 1.55q-.275.275-.637.4t-.713.125Z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<h3 class="fs-400">Soho Hotel</h3>
+						<p class="fs-200">London</p>
+						<a class="card-link fs-200" href="#"
+							>Starting form $130/night
+							<span class="card-arrow"
+								><img
+									src="./src/assets/images/MiChevronRight.svg"
+									alt="" /></span
+						></a>
+					</div>
+					<div class="flex-col card bg-offwhite">
+						<div class="relative">
+							<img
+								class="img"
+								src="./src/assets/images/rooms/sasha-kaunas-67-sOi7mVIk-unsplash.jpg"
+								alt=""
+							/>
+							<div class="top absolute flex-container">
+								<p class="bg-red fs-200 text-primary-400">
+									9.5
+								</p>
+								<svg
+									class="heart"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										fill="white"
+										d="M12 20.325q-.35 0-.712-.125t-.638-.4l-1.725-1.575q-2.65-2.425-4.788-4.812T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.325 0 2.5.562t2 1.538q.825-.975 2-1.537t2.5-.563q2.35 0 3.925 1.575T22 8.15q0 2.875-2.125 5.275T15.05 18.25l-1.7 1.55q-.275.275-.637.4t-.713.125Z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<h3 class="fs-400">Soho Hotel</h3>
+						<p class="fs-200">London</p>
+						<a class="card-link fs-200" href="#"
+							>Starting form $130/night
+							<span class="card-arrow"
+								><img
+									src="./src/assets/images/MiChevronRight.svg"
+									alt="" /></span
+						></a>
+					</div>
+					<div class="flex-col card bg-offwhite">
+						<div class="relative">
+							<img
+								class="img"
+								src="./src/assets/images/rooms/vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg"
+								alt=""
+							/>
+							<div class="top absolute flex-container">
+								<p class="bg-red fs-200 text-primary-400">
+									9.5
+								</p>
+								<svg
+									class="heart"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										fill="white"
+										d="M12 20.325q-.35 0-.712-.125t-.638-.4l-1.725-1.575q-2.65-2.425-4.788-4.812T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.325 0 2.5.562t2 1.538q.825-.975 2-1.537t2.5-.563q2.35 0 3.925 1.575T22 8.15q0 2.875-2.125 5.275T15.05 18.25l-1.7 1.55q-.275.275-.637.4t-.713.125Z"
+									/>
+								</svg>
+							</div>
+						</div>
+						<h3 class="fs-400">Soho Hotel</h3>
+						<p class="fs-200">London</p>
+						<a class="card-link fs-200" href="#"
+							>Starting form $130/night
+							<span class="card-arrow"
+								><img
+									src="./src/assets/images/MiChevronRight.svg"
+									alt="" /></span
+						></a>
+					</div>
+				</div>
+			</section>
+			<div class="flex-container cta">
+				<div class="flex-container gap-2x">
+					<img src="./src/assets/images/PhHandBold.svg" alt="" />
+					<div>
+						<h3 class="fw-bold">Exclusive Offer!</h3>
+						<p class="fs-300">
+							Want to receive exclusive offers and the best prices
+							for your dream stays? Sign up now to join our Travel
+							Club!
+						</p>
+					</div>
+				</div>
+				<button class="bg-red text-primary-400 fs-200">Sign up</button>
+			</div>
+		</main>
+		<footer class="flex-container space-between vertical-align-center">
+			<div>
+				<h2 class="fw-semi-bold fs-400">[Name]</h2>
+				<p class="fs-300">Your choice since 2002</p>
+				<div class="copy-right">
+					<small class="fs-200">[Name] &copy;</small>
+				</div>
+			</div>
+			<div class="align-right fs-300">
+				<ul>
+					<li class="fw-semi-bold"><a href="#">Support</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+		</footer>
+	</body>
+	<script src="/src/js/main.js"></script>
+</html>
