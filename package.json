@@ -1,0 +1,41 @@
+{
+	"name": "vite-vanilla-js-template",
+	"description": "ViteJS starter template for vanilla JavaScript with some basic dependencies.",
+	"version": "1.0.0",
+	"type": "module",
+	"keywords": [
+		"vanilla",
+		"javascript",
+		"template",
+		"boilerplate",
+		"boilerplate-template",
+		"postcss",
+		"eslint",
+		"prettier",
+		"scaffold",
+		"scaffold-template",
+		"vite",
+		"vitejs",
+		"vite-template",
+		"vitejs-template"
+	],
+	"scripts": {
+		"dev": "vite --host --open",
+		"lint": "eslint --ext .js ./",
+		"lint:fix": "eslint --fix --ext .js ./",
+		"format": "prettier --write \"./**/*.{js,jsx,json,css}\"",
+		"build": "vite build",
+		"preview": "vite preview --open",
+		"buildpreview": "vite build && vite preview --open"
+	},
+	"devDependencies": {
+		"eslint": "^8.54.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-import": "^2.29.0",
+		"eslint-plugin-prettier": "^5.0.1",
+		"prettier": "^3.1.0",
+		"vite": "5.0.2",
+		"vite-plugin-eslint": "^1.8.1"
+	}
+}
