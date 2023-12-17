@@ -1,0 +1,592 @@
+/***
+    The new CSS reset - version 1.11.2 (last updated 15.11.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(
+    :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+  ) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Fix mobile Safari increase font-size on landscape mode */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu,
+summary {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+- fix for the content editable attribute will work properly.
+- webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* Remove details summary webkit styles */
+::-webkit-details-marker {
+  display: none;
+}
+
+:root {
+  /* Depends on style guide specification */
+  --clr-offwhite: hsl(0, 0%, 94%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-button-red: hsl(0, 87%, 47%);
+
+  --ff-primary: "Be Vietnam Pro", sans-serif;
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-200: 0.8rem;
+  --fs-300: 0.8125rem;
+  --fs-400: 0.875rem;
+  --fs-500: 0.9375rem;
+  --fs-600: 1rem;
+  --fs-700: 1.875rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3.5rem;
+
+  --fs-body: var(--fs-400);
+  --fs-primary-heading: var(--fs-800);
+  --fs-secondary-heading: var(--fs-700);
+  --fs-nav: var(--fs-500);
+  --fs-button: var(--fs-300);
+
+  --size-100: 0.25rem;
+  --size-200: 0.5rem;
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.5rem;
+  --size-600: 2rem;
+  --size-700: 3rem;
+  --size-800: 4rem;
+  --size-900: 5rem;
+
+  --ff-inter: "Inter", sans-serif;
+}
+
+body,
+head {
+  font-family: var(--ff-inter);
+}
+
+/* Utility classes */
+.round {
+  border-radius: 6px;
+}
+
+.p-2 {
+  padding: var(--size-200);
+}
+.p-5 {
+  padding: var(--size-500) var(--size-600);
+}
+
+.px-2py-6 {
+  padding: var(--size-200) var(--size-600);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
+@media (min-width: 50em) {
+  .justify-self-end-md {
+    justify-self: end;
+  }
+}
+
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
+}
+
+.text-primary-400 {
+  color: var(--clr-white);
+}
+.text-accent-400 {
+  color: var(--clr-accent-400);
+}
+.text-accent-100 {
+  color: var(--clr-accent-100);
+}
+.text-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+.text-neutral-900 {
+  color: var(--clr-neutral-900);
+}
+
+.bg-offwhite {
+  background-color: var(--clr-offwhite);
+}
+
+.bg-red {
+  background-color: var(--clr-button-red);
+}
+.bg-accent-400 {
+  background-color: var(--clr-accent-400);
+}
+.bg-accent-100 {
+  background-color: var(--clr-accent-100);
+}
+.bg-neutral-100 {
+  background-color: var(--clr-neutral-100);
+}
+.bg-neutral-900 {
+  background-color: var(--clr-neutral-900);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+.fw-semi-bold {
+  font-weight: var(--fw-semi-bold);
+}
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+
+.fs-primary-heading {
+  font-size: var(--fs-primary-heading);
+  line-height: 1.1;
+}
+.fs-secondary-heading {
+  font-size: var(--fs-secondary-heading);
+  line-height: 1.1;
+}
+
+.fs-200 {
+  font-size: var(--fs-200);
+}
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-600 {
+  font-size: var(--fs-600);
+}
+
+.padding-block-900 {
+  padding-block: var(--size-900);
+}
+.padding-block-700 {
+  padding-block: var(--size-700);
+}
+
+.display-sm-none {
+  display: none;
+}
+
+@media (min-width: 50em) {
+  .display-md-inline-flex {
+    display: inline-flex;
+  }
+}
+
+.flex-container {
+  display: flex;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.vertical-align-center {
+  align-items: center;
+}
+
+.gap-2x {
+  gap: 2rem;
+}
+
+.gap-1x {
+  gap: var(--size-300);
+}
+
+.grid-container {
+  display: grid;
+}
+
+.grid-2x4 {
+  grid-template-columns: repeat(4, minmax(10%, 1fr));
+  grid-auto-rows: 165px;
+}
+
+.my-4 {
+  margin-bottom: var(--size-400);
+}
+
+/* gonna expand on the utlity class later */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 var(--size-600);
+  min-height: 45vh;
+  overflow: visible;
+  position: relative;
+}
+
+header:before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("./assets/images/visualsofdana-T5pL6ciEn-I-unsplash.jpg");
+  background-size: cover;
+  background-position-y: center;
+  opacity: 0.65;
+}
+
+header h1 {
+  font-weight: 700;
+  font-size: var(--size-700);
+}
+
+header p {
+  font-weight: 300;
+  font-size: var(--size-400);
+}
+
+form {
+  background-color: var(--clr-offwhite);
+  display: flex;
+  position: absolute;
+  top: 85%;
+  padding: var(--size-300) var(--size-500);
+  border-radius: var(--size-600);
+  gap: var(--size-500);
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+input::placeholder {
+  opacity: 0.8;
+  letter-spacing: 0.2px;
+}
+
+input:focus {
+  border: 1px rgb(130, 130, 130) solid;
+  box-shadow: 0 0 5px rgb(115, 115, 115);
+}
+
+input {
+  border-radius: 2px;
+  cursor: text;
+  padding: 2px 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(160, 160, 160);
+}
+
+.form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-100);
+}
+
+.center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  border-radius: var(--size-300);
+}
+
+main {
+  margin: 5rem var(--size-600) 0;
+}
+
+.grid-item-1 {
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
+}
+
+.grid-item-3 {
+  grid-row: 1 / 3;
+  grid-column: 3 / 4;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.faded-box {
+  background-color: rgba(255, 255, 255, 0.45);
+  padding: 0.2rem 1.5rem;
+  color: black;
+  border-radius: 10px;
+}
+
+.title {
+  margin: var(--size-400) 0;
+}
+
+.top {
+  top: 8px;
+  left: 10px;
+  min-width: 165px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card {
+  max-width: 210px;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.top p {
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+}
+
+.heart {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.like path {
+  animation: like 0.5s 1;
+  fill: red;
+  stroke: none;
+}
+
+@keyframes like {
+  0% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: var(--fw-bold);
+  margin-top: 16px;
+}
+
+.card-arrow {
+  width: 20px;
+  height: 20px;
+}
+
+.card h3 {
+  margin-top: 10px;
+}
+
+.cta {
+  justify-content: space-between;
+  margin-top: 2.75rem;
+  padding: var(--size-500);
+  background-color: var(--clr-offwhite);
+  border-radius: 10px;
+  align-items: center;
+}
+
+.cta img {
+  width: 45px;
+  height: 45px;
+}
+
+.cta button {
+  padding: 0.4rem 4rem;
+  border-radius: 10px;
+}
+
+footer {
+  padding: 2rem var(--size-600);
+  background-color: var(--clr-offwhite);
+  margin-top: 2.75rem;
+  line-height: 1.6;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.copy-right {
+  margin: 1rem 0;
+}
